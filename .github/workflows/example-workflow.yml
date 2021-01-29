@@ -2,6 +2,7 @@ name: example-workflow
 on: [push]
 jobs:
     compile:
-    steps:
-        - uses: actions/checkout@v2
-        - run: echo "Hi"
+        run_on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: echo "Hi"
