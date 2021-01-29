@@ -1,8 +1,14 @@
 name: example-workflow
-on: [push]
+on: [push, pull_request]
 jobs:
     compile:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
             - run: echo "Hi"
+            - run: | 
+                git clone git@github.com:mongodb/mongo-cxx-driver.git
+                cd mongo-cxx-driver
+                ./.evergreen/install_c_driver.sh master
+                
+              
